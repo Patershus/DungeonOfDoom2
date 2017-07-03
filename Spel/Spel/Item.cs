@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Program
+    class Item
     {
-        static void Main(string[] args)
+        public Item(string name)
         {
-            Game game = new Game();
-            game.Play();
+            Name = name;
         }
+
+        public string Name { get; set; }
     }
 }
