@@ -22,15 +22,47 @@ namespace DungeonsOfDoom
                 Console.Clear();
                 DisplayStats();
                 DisplayWorld();
+                CheckIfEmpty();
                 AskForMovement();
             } while (player.Health > 0);
 
+
             GameOver();
+        }
+
+        private void CheckIfEmpty()
+        {
+            if (world[player.X, player.Y].Item != null)
+            {
+                if (world[player.X, player.Y].Item.Name == "Sword")
+                {
+                    player.Damage += 5;
+                    Console.WriteLine("You picked up a Sword!");
+                    world[player.X, player.Y].Item = null;
+                }
+                else if (world[player.X, player.Y].Item.Name == "Potion")
+                {
+                    player.Health += 5;
+                    Console.WriteLine("You picked up a Potion!");
+                    world[player.X, player.Y].Item = null;
+                }
+
+            }
+            else if (world[player.X, player.Y].Monster != null)
+            {
+                player.Health -= world[player.X, player.Y].Monster.Damage;
+                Console.WriteLine("GAHHH!!!");
+                Console.WriteLine("YOU KILLED A MONSTER!");
+                world[player.X, player.Y].Monster = null;
+            }
+
+
         }
 
         void DisplayStats()
         {
             Console.WriteLine($"Health: {player.Health}");
+            Console.WriteLine($"Damage: {player.Damage}");
         }
 
         private void AskForMovement()
@@ -68,11 +100,11 @@ namespace DungeonsOfDoom
                 {
                     Room room = world[x, y];
                     if (player.X == x && player.Y == y)
-                        Console.Write("P");
+                        Console.Write($"{player.MapChar}");
                     else if (room.Monster != null)
-                        Console.Write("M");
+                        Console.Write($"{room.Monster.MapChar}");
                     else if (room.Item != null)
-                        Console.Write("I");
+                        Console.Write($"{room.Item.MapChar}");
                     else
                         Console.Write(".");
                 }
@@ -100,10 +132,12 @@ namespace DungeonsOfDoom
                     if (player.X != x || player.Y != y)
                     {
                         if (random.Next(0, 100) < 10)
-                            world[x, y].Monster = new Monster(30);
+                            world[x, y].Monster = new Monster(30, 5);
 
-                        if (random.Next(0, 100) < 10)
-                            world[x, y].Item = new Item("Sword");
+                        if (random.Next(0, 100) < 5)
+                            world[x, y].Item = new Sword();
+                        if (random.Next(0, 100) < 5)
+                            world[x, y].Item = new Potion(5);
                     }
                 }
             }
@@ -111,7 +145,7 @@ namespace DungeonsOfDoom
 
         private void CreatePlayer()
         {
-            player = new Player(30, 0, 0);
+            player = new Player(30, 0, 0, 5);
         }
     }
 }

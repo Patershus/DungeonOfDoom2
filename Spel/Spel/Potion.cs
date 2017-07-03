@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Monster : Character
+    class Potion : Item
     {
-        public Monster(int health, int damage) : base(health, damage, 'M')
+        public Potion(int healing) : base("Potion", 'I')
         {
+            Healing = healing;
 
         }
 
-        //public int Health { get; set; }
+        public int Healing { get; private set; }
     }
 }

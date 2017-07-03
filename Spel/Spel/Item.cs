@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Item
+    abstract class Item : MapObject
     {
-        public Item(string name)
+        public Item(string name, char mapChar) : base(mapChar)
         {
             Name = name;
+            //Hallo igen
         }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
     }
 }
