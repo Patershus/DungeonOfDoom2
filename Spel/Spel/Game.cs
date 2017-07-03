@@ -145,7 +145,9 @@ namespace DungeonsOfDoom
 
         private void CreatePlayer()
         {
-            player = new Player(30, 0, 0, 5);
+            int playerStartX = random.Next(0, 19);
+            int playerStartY = random.Next(0, 4);
+            player = new Player(30, playerStartX, playerStartY, 5);
         }
     }
 }
