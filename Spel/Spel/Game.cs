@@ -50,7 +50,15 @@ namespace DungeonsOfDoom
             }
             else if (world[player.X, player.Y].Monster != null)
             {
-                player.Health -= world[player.X, player.Y].Monster.Damage;
+                if (player.Damage > world[player.X, player.Y].Monster.Damage)
+                {
+                    player.Health -= world[player.X, player.Y].Monster.Damage / 2;
+                }
+                else
+                {
+                    player.Health -= world[player.X, player.Y].Monster.Damage;
+                }
+
                 Console.WriteLine("GAHHH!!!");
                 Console.WriteLine("YOU KILLED A MONSTER!");
                 world[player.X, player.Y].Monster = null;
@@ -132,7 +140,7 @@ namespace DungeonsOfDoom
                     if (player.X != x || player.Y != y)
                     {
                         if (random.Next(0, 100) < 10)
-                            world[x, y].Monster = new Monster(30, 5);
+                            world[x, y].Monster = new Monster(30, 10);
 
                         if (random.Next(0, 100) < 5)
                             world[x, y].Item = new Sword();
