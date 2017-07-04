@@ -18,7 +18,7 @@ namespace DungeonsOfDoom
 
         public override string Use(Character player)
         {
-            player.Health += 10;
+            player.Health += Healing;
             return $"You picked up a Potion, healed for 10!";
         }
     }

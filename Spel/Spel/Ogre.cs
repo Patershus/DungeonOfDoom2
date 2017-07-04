@@ -12,5 +12,9 @@ namespace DungeonsOfDoom
         {
 
         }
+        public override string ToString()
+        {
+            return "An Ogre";
+        }
     }
 }

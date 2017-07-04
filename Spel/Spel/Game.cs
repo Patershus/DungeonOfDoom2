@@ -142,7 +142,7 @@ namespace DungeonsOfDoom
                         if (random.Next(0, 500) < 2)
                             world[x, y].Item = new Sword("Sword AF Doom", 100000000);
                         if (random.Next(0, 100) < 5)
-                            world[x, y].Item = new Potion( 5, "Healing potion");
+                            world[x, y].Item = new Potion( 10, "Healing potion");
                     }
                 }
             }
