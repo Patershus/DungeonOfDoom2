@@ -32,7 +32,13 @@ namespace DungeonsOfDoom
 
         private void CheckIfEmpty()
         {
-            if (world[player.X, player.Y].Item != null)
+            if (world[player.X, player.Y].Monster != null)
+            {
+                Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
+                
+                world[player.X, player.Y].Monster = null;
+            }
+            else if (world[player.X, player.Y].Item != null)
             {
                 if (world[player.X, player.Y].Item.MapChar == 'I')
                 {
@@ -41,12 +47,6 @@ namespace DungeonsOfDoom
                     Console.WriteLine(OutputString);
                 }
               
-            }
-            else if (world[player.X, player.Y].Monster != null)
-            {
-                Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
-                
-                world[player.X, player.Y].Monster = null;
             }
 
 
@@ -133,9 +133,9 @@ namespace DungeonsOfDoom
                     if (player.X != x || player.Y != y)
                     {
                         if (random.Next(0, 100) < 3)
-                            world[x, y].Monster = new Ogre();
+                            world[x, y].Monster = new Ogre(x,y);
                         if (random.Next(0, 100) < 15)
-                            world[x, y].Monster = new Orc();
+                            world[x, y].Monster = new Orc(x,y);
 
                         if (random.Next(0, 100) < 5)
                             world[x, y].Item = new Sword("Rusty Sword", 2);
@@ -143,6 +143,8 @@ namespace DungeonsOfDoom
                             world[x, y].Item = new Sword("Sword AF Doom", 100000000);
                         if (random.Next(0, 100) < 5)
                             world[x, y].Item = new Potion( 10, "Healing potion");
+                        if (random.Next(0, 100) < 50)
+                            world[x, y].Item = new Portal("Portal");
                     }
                 }
             }

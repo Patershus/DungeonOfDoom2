@@ -8,7 +8,7 @@ namespace DungeonsOfDoom
 {
     class Orc : Monster
     {
-        public Orc() : base(20, 5)
+        public Orc(int x, int y) : base(20, 5, x, y)
         {
 
         }

@@ -11,9 +11,14 @@ namespace DungeonsOfDoom
 
         public int Health { get; set; }
         public int Damage { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public Character(int health, int damage, char mapChar) : base(mapChar)
+
+        public Character(int health, int damage, char mapChar, int x, int y) : base(mapChar)
         {
+            X = x;
+            Y = y;
             Health = health;
             Damage = damage;
         }

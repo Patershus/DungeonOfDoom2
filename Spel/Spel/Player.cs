@@ -8,15 +8,15 @@ namespace DungeonsOfDoom
 {
     class Player : Character
     {
-        public Player(int health, int x, int y, int damage) : base(health, damage, 'P')
+        public Player(int health, int x, int y, int damage) : base(health, damage, 'P', x , y)
         {
-            X = x;
-            Y = y;
+            //X = x;
+            //Y = y;
         }
 
         //public int Health { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
+        //public int X { get; set; }
+        //public int Y { get; set; }
 
         public override string ToString()
         {
