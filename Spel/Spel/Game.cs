@@ -102,6 +102,7 @@ namespace DungeonsOfDoom
 
         private void DisplayWorld()
         {
+            int monsterCount = 0;
             for (int y = 0; y < world.GetLength(1); y++)
             {
                 for (int x = 0; x < world.GetLength(0); x++)
@@ -110,13 +111,20 @@ namespace DungeonsOfDoom
                     if (player.X == x && player.Y == y)
                         Console.Write($"{player.MapChar}");
                     else if (room.Monster != null)
+                    {
                         Console.Write($"{room.Monster.MapChar}");
+                        monsterCount += 1;
+                    }
                     else if (room.Item != null)
                         Console.Write($"{room.Item.MapChar}");
                     else
                         Console.Write(".");
                 }
                 Console.WriteLine();
+            }
+            if (monsterCount==0)
+            {
+                Console.WriteLine("YOu win!");
             }
         }
 
