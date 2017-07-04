@@ -11,10 +11,10 @@ namespace DungeonsOfDoom
     class Game
     {
         Player player;
-        Room[,] world;
+        readonly Room[,] world = new Room[20,5];
         Random random = new Random();
         static int level = 1;
-        static int monsterCount;
+        //static int monsterCount;
 
         public void Play(int currentLevel)
         {
@@ -34,7 +34,7 @@ namespace DungeonsOfDoom
             Console.WriteLine($"Level: {currentLevel}");
                 DisplayStats();
                 DisplayWorld();
-                CheckIfEmpty();
+                CheckIfEmpty();                
                 AskForMovement();
             } while (player.Health > 0);
 
@@ -49,10 +49,10 @@ namespace DungeonsOfDoom
                 Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
                 
                 world[player.X, player.Y].Monster = null;
+                Monster.MonsterCount--;
             }
             else if (world[player.X, player.Y].Item != null)
-            {
-              
+            {              
                     string OutputString = world[player.X, player.Y].Item.Use(player);
                     world[player.X, player.Y].Item = null;
                     Console.WriteLine(OutputString);          
@@ -96,7 +96,7 @@ namespace DungeonsOfDoom
 
         private void DisplayWorld()
         {
-            monsterCount = 0;
+            //monsterCount = 0;
             for (int y = 0; y < world.GetLength(1); y++)
             {
                 for (int x = 0; x < world.GetLength(0); x++)
@@ -107,7 +107,7 @@ namespace DungeonsOfDoom
                     else if (room.Monster != null)
                     {
                         Console.Write($"{room.Monster.MapChar}");
-                        monsterCount += 1;
+                        //monsterCount += 1;
                     }
                     else if (room.Item != null)
                         Console.Write($"{room.Item.MapChar}");
@@ -116,7 +116,7 @@ namespace DungeonsOfDoom
                 }
                 Console.WriteLine();
             }
-            if (monsterCount==0)
+            if (Monster.MonsterCount==0)
             {
                 Console.WriteLine("You win!");
                 Thread.Sleep(1000);
@@ -139,7 +139,7 @@ namespace DungeonsOfDoom
         //Skapar världen
         private void CreateWorld()
         {
-            world = new Room[20, 5];
+            //world = new Room[20, 5];
             for (int y = 0; y < world.GetLength(1); y++)
             {
                 for (int x = 0; x < world.GetLength(0); x++)
