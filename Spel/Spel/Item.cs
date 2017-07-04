@@ -15,5 +15,7 @@ namespace DungeonsOfDoom
         }
 
         public string Name { get; private set; }
+
+        public abstract int Use();
     }
 }

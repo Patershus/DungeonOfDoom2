@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Sword : Item
+    class Ogre : Monster
     {
-        public Sword() : base("Sword", 'I')
+        public Ogre() : base(15, 10)
         {
 
-        }
-
-        public override int Use()
-        {
-            return 5;
         }
     }
 }

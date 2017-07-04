@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{976FF8A0-D435-40EE-BDFA-D95FFA7B5C42}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Spel</RootNamespace>
-    <AssemblyName>Spel</AssemblyName>
+    <RootNamespace>DungeonsOfDoom</RootNamespace>
+    <AssemblyName>DungeonsOfDoom</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,6 +47,8 @@
     <Compile Include="Item.cs" />
     <Compile Include="MapObject.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="Ogre.cs" />
+    <Compile Include="Orc.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="Program.cs" />

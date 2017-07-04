@@ -15,5 +15,11 @@ namespace DungeonsOfDoom
         }
 
         public int Healing { get; private set; }
+
+        public override int Use()
+        {
+            return 5;
+        }
     }
+
 }
