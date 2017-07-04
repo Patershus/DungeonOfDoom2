@@ -30,5 +30,6 @@ namespace DungeonsOfDoom
                 
             }
         }
+        //todo Fixa ToString för alla char
     }
 }
