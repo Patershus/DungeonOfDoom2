@@ -17,5 +17,18 @@ namespace DungeonsOfDoom
             Health = health;
             Damage = damage;
         }
+        public virtual string Fight(Character opponent)
+        {
+            opponent.Health -= this.Damage;
+            if (opponent.Health > 0)
+            {
+                opponent.Fight(this);
+            }
+            else
+            {
+                Console.WriteLine($"{opponent} killed {opponent}");
+            }
+            return "";
+        }
     }
 }
