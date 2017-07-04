@@ -23,9 +23,9 @@ namespace DungeonsOfDoom
             CreateWorld();
 
             //Medelande vid start av spel.
-            //TextUtils.Animate("Welcome to Dungeons Of Doom...");
-            //TextUtils.Animate("Press any key to start.");
-            //Console.ReadKey(true);
+            TextUtils.Animate("Welcome to Dungeons Of Doom...");
+            TextUtils.Animate("Press any key to start.");
+            Console.ReadKey(true);
 
             //Spel loop
             do

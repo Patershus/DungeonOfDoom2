@@ -12,16 +12,13 @@ namespace DungeonsOfDoom.Utils
 
         public static bool TestPercentage(double percent)
         {
-            if (random.Next(0, 1000) < percent*10)
-            {
-                return true;
-            }
-            else return false;
+            return (RandomNumber(0, 1000) < percent * 10f);
         }
 
         public static int RandomNumber(int first, int second)
         {
             return random.Next(first, second + 1);
         }
+        
     }
 }
