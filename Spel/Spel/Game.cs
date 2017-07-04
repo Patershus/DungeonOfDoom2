@@ -36,10 +36,23 @@ namespace DungeonsOfDoom
                 DisplayWorld();
                 CheckIfEmpty();                
                 AskForMovement();
+                DidIWin();
             } while (player.Health > 0);
 
 
             GameOver();
+        }
+
+        private void DidIWin()
+        {
+            if (Monster.MonsterCount == 0)
+            {
+                Console.WriteLine("You win!");
+                Thread.Sleep(1000);
+                Console.ReadKey(true);
+                level += 1;
+                Play(level);
+            }
         }
 
         private void CheckIfEmpty()
@@ -116,14 +129,7 @@ namespace DungeonsOfDoom
                 }
                 Console.WriteLine();
             }
-            if (Monster.MonsterCount==0)
-            {
-                Console.WriteLine("You win!");
-                Thread.Sleep(1000);
-                Console.ReadKey(true);
-                level += 1;
-                Play(level);
-            }
+          
         }
 
         //Spelet är över, startar ett nytt spel
