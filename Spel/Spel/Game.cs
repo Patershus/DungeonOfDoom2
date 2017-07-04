@@ -34,33 +34,40 @@ namespace DungeonsOfDoom
         {
             if (world[player.X, player.Y].Item != null)
             {
-                if (world[player.X, player.Y].Item.Name == "Sword")
+                if (world[player.X, player.Y].Item.MapChar == 'I')
                 {
-                    player.Damage += 5;
-                    Console.WriteLine("You picked up a Sword!");
-                    world[player.X, player.Y].Item = null;
+                    world[player.X, player.Y].Item.Use(player);
                 }
-                else if (world[player.X, player.Y].Item.Name == "Potion")
-                {
-                    player.Health += 5;
-                    Console.WriteLine("You picked up a Potion!");
-                    world[player.X, player.Y].Item = null;
-                }
+                //{
+                //    player.Damage += 5;
+                //    Console.WriteLine("You picked up a Sword!");
+                //    world[player.X, player.Y].Item = null;
+                //}
+                //else if (world[player.X, player.Y].Item.Name == "Potion")
+                //{
+                //    player.Health += world[player.X, player.Y].Item.Use();
+                //    Console.WriteLine("You picked up a Potion!");
+                //    world[player.X, player.Y].Item = null;
+                //}
 
             }
             else if (world[player.X, player.Y].Monster != null)
             {
-                if (player.Damage > world[player.X, player.Y].Monster.Damage)
-                {
-                    player.Health -= world[player.X, player.Y].Monster.Damage / 2;
-                }
-                else
-                {
-                    player.Health -= world[player.X, player.Y].Monster.Damage;
-                }
+                player.Fight(world[player.X, player.Y].Monster);
+                
+                
+                
+                //if (player.Damage > world[player.X, player.Y].Monster.Damage)
+                //{
+                //    player.Health -= world[player.X, player.Y].Monster.Damage / 2;
+                //}
+                //else
+                //{
+                //    player.Health -= world[player.X, player.Y].Monster.Damage;
+                //}
 
-                Console.WriteLine("GAHHH!!!");
-                Console.WriteLine("YOU KILLED A MONSTER!");
+                //Console.WriteLine("GAHHH!!!");
+                //Console.WriteLine("YOU KILLED A MONSTER!");
                 world[player.X, player.Y].Monster = null;
             }
 
@@ -147,8 +154,10 @@ namespace DungeonsOfDoom
 
                     if (player.X != x || player.Y != y)
                     {
-                        if (random.Next(0, 100) < 10)
-                            world[x, y].Monster = new Monster(30, 10);
+                        if (random.Next(0, 100) < 3)
+                            world[x, y].Monster = new Ogre();
+                        if (random.Next(0, 100) < 15)
+                            world[x, y].Monster = new Orc();
 
                         if (random.Next(0, 100) < 5)
                             world[x, y].Item = new Sword();

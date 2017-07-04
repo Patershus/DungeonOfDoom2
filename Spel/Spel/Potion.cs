@@ -16,9 +16,9 @@ namespace DungeonsOfDoom
 
         public int Healing { get; private set; }
 
-        public override int Use()
+        public override void Use(Character player)
         {
-            return 5;
+            player.Health += 10;   
         }
     }
 

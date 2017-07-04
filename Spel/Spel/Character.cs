@@ -26,7 +26,7 @@ namespace DungeonsOfDoom
             }
             else
             {
-                Console.WriteLine($"{opponent} killed {opponent}");
+                Console.WriteLine($"{this} killed {opponent}");
             }
             return "";
         }

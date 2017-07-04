@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Monster : Character
+    abstract class Monster : Character
     {
         public Monster(int health, int damage) : base(health, damage, 'M')
         {

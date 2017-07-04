@@ -8,7 +8,7 @@ namespace DungeonsOfDoom
 {
     class Ogre : Monster
     {
-        public Ogre() : base(15, 10)
+        public Ogre() : base(30, 5)
         {
 
         }

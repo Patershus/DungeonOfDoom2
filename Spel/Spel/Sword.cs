@@ -13,9 +13,9 @@ namespace DungeonsOfDoom
 
         }
 
-        public override int Use()
+        public override void Use(Character player)
         {
-            return 5;
+            player.Damage += 2;
         }
     }
 }
