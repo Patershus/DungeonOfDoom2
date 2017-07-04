@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonsOfDoom.Utls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,14 @@ namespace DungeonsOfDoom
 
         public void Play(int level)
         {
+
             CreatePlayer();
             CreateWorld();
+            TextUtils.Animate("Welcome to Dungeons Of Doom...");
+            TextUtils.Animate("Press any key to start.");
+            Console.ReadKey(true);
 
+            //Spel loop
             do
             {
                 Console.Clear();
@@ -119,6 +125,7 @@ namespace DungeonsOfDoom
             }
         }
 
+        //Spelet är över, startar ett nytt spel
         private void GameOver()
         {
             Console.Clear();
@@ -127,6 +134,7 @@ namespace DungeonsOfDoom
             Play(level);
         }
 
+        //Skapar världen
         private void CreateWorld()
         {
             world = new Room[20, 5];
@@ -138,11 +146,13 @@ namespace DungeonsOfDoom
 
                     if (player.X != x || player.Y != y)
                     {
+                        //Lägger till monster
                         if (random.Next(0, 100) < 3)
                             world[x, y].Monster = new Ogre(x,y);
                         if (random.Next(0, 100) < 15)
                             world[x, y].Monster = new Orc(x,y);
 
+                        //Lägger till items
                         if (random.Next(0, 100) < 5)
                             world[x, y].Item = new Sword("Rusty Sword", 2);
                         if (random.Next(0, 500) < 2)
@@ -155,11 +165,11 @@ namespace DungeonsOfDoom
                 }
             }
         }
-
+        //Skapar en instans av Player med slumpad startposition.
         private void CreatePlayer()
         {
-            int playerStartX = random.Next(0, 19);
-            int playerStartY = random.Next(0, 4);
+            int playerStartX = random.Next(0, 20);
+            int playerStartY = random.Next(0, 5);
             player = new Player(30, playerStartX, playerStartY, 5);
         }
     }

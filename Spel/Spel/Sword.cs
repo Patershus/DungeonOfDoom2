@@ -8,13 +8,16 @@ namespace DungeonsOfDoom
 {
     class Sword : Item
     {
+        //Ctor
         public Sword(string name, int damage) : base(name, 'I')
         {
             Damage = damage;
         }
 
+        //Prop
         public int Damage { get; set; }
 
+        //Effekt av att använda svärd.
         public override string Use(Character player)
         {
             player.Damage += Damage;
