@@ -18,7 +18,7 @@ namespace DungeonsOfDoom
             if (opponent.Damage>this.Damage*2)
             {
                 this.Health = 0;
-                return $"{opponent} killed {this}";
+                return $"{this} died from fear";
             }
             else
             {

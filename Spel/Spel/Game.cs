@@ -112,7 +112,8 @@ namespace DungeonsOfDoom
             if (monsterCount==0)
             {
                 Console.WriteLine("You win!");
-                Thread.Sleep(400);
+                Thread.Sleep(1000);
+                Console.ReadKey(true);
                 level += 1;
                 Play(level);
             }
