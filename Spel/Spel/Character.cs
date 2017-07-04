@@ -22,13 +22,13 @@ namespace DungeonsOfDoom
             opponent.Health -= this.Damage;
             if (opponent.Health > 0)
             {
-                opponent.Fight(this);
+                return opponent.Fight(this);
             }
             else
             {
-                Console.WriteLine($"{this} killed {opponent}");
+            return $"{this} killed {opponent}";
+                
             }
-            return "";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace DungeonsOfDoom
 {
     class Potion : Item
     {
-        public Potion(int healing) : base("Potion", 'I')
+        public Potion(int healing ,string name) : base(name, 'I')
         {
             Healing = healing;
 
@@ -16,9 +16,10 @@ namespace DungeonsOfDoom
 
         public int Healing { get; private set; }
 
-        public override void Use(Character player)
+        public override string Use(Character player)
         {
-            player.Health += 10;   
+            player.Health += 10;
+            return $"You picked up a Potion, healed for 10!";
         }
     }
 

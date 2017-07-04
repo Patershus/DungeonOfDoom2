@@ -18,6 +18,7 @@ namespace DungeonsOfDoom
             if (opponent.Damage>this.Damage*2)
             {
                 this.Health = 0;
+                return $"{opponent} killed {this}";
             }
             else
             {
@@ -25,10 +26,11 @@ namespace DungeonsOfDoom
 
                 if (opponent.Health>0)
                 {
-                opponent.Fight(this);
+                return opponent.Fight(this);
                 }
+                return $"{this} killed {opponent}";
             }
-            return "";
+            
         }
     }
 }

@@ -8,14 +8,17 @@ namespace DungeonsOfDoom
 {
     class Sword : Item
     {
-        public Sword() : base("Sword", 'I')
+        public Sword(string name, int damage) : base(name, 'I')
         {
-
+            Damage = damage;
         }
 
-        public override void Use(Character player)
+        public int Damage { get; set; }
+
+        public override string Use(Character player)
         {
-            player.Damage += 2;
+            player.Damage += Damage;
+            return $"You picked up a {this.Name}, {this.Damage} damage added!";
         }
     }
 }
