@@ -1,4 +1,4 @@
-﻿using DungeonsOfDoom.Utls;
+﻿using DungeonsOfDoom.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +13,25 @@ namespace DungeonsOfDoom
         Player player;
         Room[,] world;
         Random random = new Random();
-        public int level = 1;
+        static int level = 1;
+        static int monsterCount;
 
-        public void Play(int level)
+        public void Play(int currentLevel)
         {
 
             CreatePlayer();
             CreateWorld();
-            TextUtils.Animate("Welcome to Dungeons Of Doom...");
-            TextUtils.Animate("Press any key to start.");
-            Console.ReadKey(true);
+
+            //Medelande vid start av spel.
+            //TextUtils.Animate("Welcome to Dungeons Of Doom...");
+            //TextUtils.Animate("Press any key to start.");
+            //Console.ReadKey(true);
 
             //Spel loop
             do
             {
                 Console.Clear();
-            Console.WriteLine($"Level: {level}");
+            Console.WriteLine($"Level: {currentLevel}");
                 DisplayStats();
                 DisplayWorld();
                 CheckIfEmpty();
@@ -52,9 +55,7 @@ namespace DungeonsOfDoom
               
                     string OutputString = world[player.X, player.Y].Item.Use(player);
                     world[player.X, player.Y].Item = null;
-                    Console.WriteLine(OutputString);
-                
-              
+                    Console.WriteLine(OutputString);          
             }
 
 
@@ -95,7 +96,7 @@ namespace DungeonsOfDoom
 
         private void DisplayWorld()
         {
-            int monsterCount = 0;
+            monsterCount = 0;
             for (int y = 0; y < world.GetLength(1); y++)
             {
                 for (int x = 0; x < world.GetLength(0); x++)
@@ -131,6 +132,7 @@ namespace DungeonsOfDoom
             Console.Clear();
             Console.WriteLine("Game over...");
             Console.ReadKey();
+            level = 1;
             Play(level);
         }
 
@@ -147,19 +149,19 @@ namespace DungeonsOfDoom
                     if (player.X != x || player.Y != y)
                     {
                         //Lägger till monster
-                        if (random.Next(0, 100) < 3)
+                        if (RandomUtils.TestPercentage(3))
                             world[x, y].Monster = new Ogre(x,y);
-                        if (random.Next(0, 100) < 15)
+                        if (RandomUtils.TestPercentage(15))
                             world[x, y].Monster = new Orc(x,y);
 
                         //Lägger till items
-                        if (random.Next(0, 100) < 5)
+                        if (RandomUtils.TestPercentage(5))
                             world[x, y].Item = new Sword("Rusty Sword", 2);
-                        if (random.Next(0, 500) < 2)
+                        if (RandomUtils.TestPercentage(0.1))
                             world[x, y].Item = new Sword("Sword AF Doom", 100000000);
-                        if (random.Next(0, 100) < 5)
+                        if (RandomUtils.TestPercentage(5))
                             world[x, y].Item = new Potion( 10, "Healing potion");
-                        if (random.Next(0, 100) < 3)
+                        if (RandomUtils.TestPercentage(5))
                             world[x, y].Item = new Portal("Portal");
                     }
                 }
@@ -168,8 +170,9 @@ namespace DungeonsOfDoom
         //Skapar en instans av Player med slumpad startposition.
         private void CreatePlayer()
         {
-            int playerStartX = random.Next(0, 20);
-            int playerStartY = random.Next(0, 5);
+            //int playerStartX = random.Next(0, 20);
+            int playerStartX = RandomUtils.RandomNumber(0, 19);
+            int playerStartY = RandomUtils.RandomNumber(0,4);
             player = new Player(30, playerStartX, playerStartY, 5);
         }
     }

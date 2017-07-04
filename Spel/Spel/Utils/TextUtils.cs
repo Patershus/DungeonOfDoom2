@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DungeonsOfDoom.Utls
+namespace DungeonsOfDoom.Utils
 {
     static class TextUtils
     {
