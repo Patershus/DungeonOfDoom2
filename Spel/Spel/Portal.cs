@@ -10,7 +10,7 @@ namespace DungeonsOfDoom
     {
         static Random random = new Random();
 
-        public Portal(string name) : base(name, 'I')
+        public Portal(string name) : base(name, 'O')
         {
 
         }
@@ -19,7 +19,9 @@ namespace DungeonsOfDoom
             int newX = 0;
             int newY = 0;
             newX = random.Next(0, 20);
-            newY = random.Next(0, 6);
+            newY = random.Next(0, 5);
+           
+
             character.X = newX;
             character.Y = newY;
 

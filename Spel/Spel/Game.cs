@@ -40,12 +40,11 @@ namespace DungeonsOfDoom
             }
             else if (world[player.X, player.Y].Item != null)
             {
-                if (world[player.X, player.Y].Item.MapChar == 'I')
-                {
+              
                     string OutputString = world[player.X, player.Y].Item.Use(player);
                     world[player.X, player.Y].Item = null;
                     Console.WriteLine(OutputString);
-                }
+                
               
             }
 
@@ -143,7 +142,7 @@ namespace DungeonsOfDoom
                             world[x, y].Item = new Sword("Sword AF Doom", 100000000);
                         if (random.Next(0, 100) < 5)
                             world[x, y].Item = new Potion( 10, "Healing potion");
-                        if (random.Next(0, 100) < 50)
+                        if (random.Next(0, 100) < 3)
                             world[x, y].Item = new Portal("Portal");
                     }
                 }
