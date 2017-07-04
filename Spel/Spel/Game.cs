@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
@@ -11,8 +12,9 @@ namespace DungeonsOfDoom
         Player player;
         Room[,] world;
         Random random = new Random();
+        public int level = 1;
 
-        public void Play()
+        public void Play(int level)
         {
             CreatePlayer();
             CreateWorld();
@@ -20,6 +22,7 @@ namespace DungeonsOfDoom
             do
             {
                 Console.Clear();
+            Console.WriteLine($"Level: {level}");
                 DisplayStats();
                 DisplayWorld();
                 CheckIfEmpty();
@@ -108,7 +111,10 @@ namespace DungeonsOfDoom
             }
             if (monsterCount==0)
             {
-                Console.WriteLine("YOu win!");
+                Console.WriteLine("You win!");
+                Thread.Sleep(400);
+                level += 1;
+                Play(level);
             }
         }
 
@@ -117,7 +123,7 @@ namespace DungeonsOfDoom
             Console.Clear();
             Console.WriteLine("Game over...");
             Console.ReadKey();
-            Play();
+            Play(level);
         }
 
         private void CreateWorld()
