@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DoD
 {
+    /// <summary>
+    /// Player class
+    /// </summary>
     public class Player : Character
     {
         public Player(int health, int x, int y, int damage) : base(health, damage, 'P', x , y)

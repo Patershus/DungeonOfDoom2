@@ -9,6 +9,10 @@ namespace Utils
 {
     public static class TextUtils
     {
+        /// <summary>
+        /// Print animation for a given string
+        /// </summary>
+        /// <param name="value"></param>
         public static void Animate(string value)
         {
             foreach (char c in value)

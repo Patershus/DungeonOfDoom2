@@ -13,11 +13,17 @@ namespace DoD
 
         }
 
+        /// <summary>
+        /// An orc fights another character
+        /// </summary>
+        /// <param name="opponent">The opponent to fight</param>
+        /// <returns>string to print</returns>
         public override string Fight(Character opponent)
         {
             if (opponent.Damage>this.Damage*2)
             {
                 this.Health = 0;
+                opponent.Backpack.Add(this);
                 return $"{this} died from fear";
             }
             else

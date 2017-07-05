@@ -26,7 +26,11 @@ namespace DoD
             Backpack = new List<IBackpackable>();
         }
 
-
+        /// <summary>
+        /// Two characters fight to the death!
+        /// </summary>
+        /// <param name="opponent">Character to fight</param>
+        /// <returns>Returns a string to print</returns>
         public virtual string Fight(Character opponent)
         {
             opponent.Health -= this.Damage;

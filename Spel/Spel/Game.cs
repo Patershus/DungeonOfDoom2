@@ -24,15 +24,15 @@ namespace DungeonsOfDoom
 
             musicThread.IsBackground = true;
 
-            musicThread.Start();
+            
             CreatePlayer();
             CreateWorld();
-
+            
             //Medelande vid start av spel.
             TextUtils.Animate("Welcome to Dungeons Of Doom...");
             TextUtils.Animate("Press any key to start.");
             Console.ReadKey(true);
-
+            //musicThread.Start();
             //Spel loop
             do
             {
@@ -50,6 +50,9 @@ namespace DungeonsOfDoom
             GameOver();
         }
 
+        /// <summary>
+        /// Prints the current backpack
+        /// </summary>
         private void DisplayBackpack()
         {
             if (player.Backpack!=null)
@@ -74,27 +77,45 @@ namespace DungeonsOfDoom
             }
         }
 
+        /// <summary>
+        /// Controlls if there is a Monster or an item in the position of the player
+        /// </summary>
         private void CheckIfEmpty()
         {
             if (world[player.X, player.Y].Monster != null)
             {
-                Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
-                
-
-                world[player.X, player.Y].Monster = null;
-                Monster.MonsterCount--;
+                FightMonster();            
             }
             else if (world[player.X, player.Y].Item != null)
-            {              
-                    string OutputString = world[player.X, player.Y].Item.Use(player);
-                    //player.Backpack.Add(world[player.X, player.Y].Item);
-                    world[player.X, player.Y].Item = null;
-                    Console.WriteLine(OutputString);          
+            {
+                UseItemInRoom();                     
             }
-
 
         }
 
+        /// <summary>
+        /// Use the item in the new room
+        /// </summary>
+        private void UseItemInRoom()
+        {
+            string OutputString = world[player.X, player.Y].Item.Use(player);
+            world[player.X, player.Y].Item = null;
+            Console.WriteLine(OutputString);
+        }
+
+        /// <summary>
+        /// Fight the monster in the room
+        /// </summary>
+        private void FightMonster()
+        {
+            Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
+            world[player.X, player.Y].Monster = null;
+            Monster.MonsterCount--;
+        }
+
+        /// <summary>
+        /// Writes the stats of the player in the Console
+        /// </summary>
         void DisplayStats()
         {
             Console.WriteLine($"Health: {player.Health}");
@@ -132,6 +153,9 @@ namespace DungeonsOfDoom
             }
         }
 
+        /// <summary>
+        /// Prints the game world
+        /// </summary>
         private void DisplayWorld()
         {
             //monsterCount = 0;
@@ -167,7 +191,10 @@ namespace DungeonsOfDoom
             Play(level);
         }
 
-        //Skapar världen
+        
+        /// <summary>
+        /// Skapar världen
+        /// </summary>
         private void CreateWorld()
         {
             //world = new Room[20, 5];
@@ -206,8 +233,16 @@ namespace DungeonsOfDoom
             int playerStartY = RandomUtils.RandomNumber(0,4);
             player = new Player(30, playerStartX, playerStartY, 5);
         }
+        /// <summary>
+        /// Plays the music
+        /// </summary>
         private void PlayMusic()
         {
+            //MArio
+            //Console.Beep(659, 125); Console.Beep(659, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(523, 125); Console.Beep(659, 125); Thread.Sleep(125); Console.Beep(784, 125); Thread.Sleep(375); Console.Beep(392, 125); Thread.Sleep(375); Console.Beep(523, 125); Thread.Sleep(250); Console.Beep(392, 125); Thread.Sleep(250); Console.Beep(330, 125); Thread.Sleep(250); Console.Beep(440, 125); Thread.Sleep(125); Console.Beep(494, 125); Thread.Sleep(125); Console.Beep(466, 125); Thread.Sleep(42); Console.Beep(440, 125); Thread.Sleep(125); Console.Beep(392, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(125); Console.Beep(784, 125); Thread.Sleep(125); Console.Beep(880, 125); Thread.Sleep(125); Console.Beep(698, 125); Console.Beep(784, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(125); Console.Beep(523, 125); Thread.Sleep(125); Console.Beep(587, 125); Console.Beep(494, 125); Thread.Sleep(125); Console.Beep(523, 125); Thread.Sleep(250); Console.Beep(392, 125); Thread.Sleep(250); Console.Beep(330, 125); Thread.Sleep(250); Console.Beep(440, 125); Thread.Sleep(125); Console.Beep(494, 125); Thread.Sleep(125); Console.Beep(466, 125); Thread.Sleep(42); Console.Beep(440, 125); Thread.Sleep(125); Console.Beep(392, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(125); Console.Beep(784, 125); Thread.Sleep(125); Console.Beep(880, 125); Thread.Sleep(125); Console.Beep(698, 125); Console.Beep(784, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(125); Console.Beep(523, 125); Thread.Sleep(125); Console.Beep(587, 125); Console.Beep(494, 125); Thread.Sleep(375); Console.Beep(784, 125); Console.Beep(740, 125); Console.Beep(698, 125); Thread.Sleep(42); Console.Beep(622, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(415, 125); Console.Beep(440, 125); Console.Beep(523, 125); Thread.Sleep(125); Console.Beep(440, 125); Console.Beep(523, 125); Console.Beep(587, 125); Thread.Sleep(250); Console.Beep(784, 125); Console.Beep(740, 125); Console.Beep(698, 125); Thread.Sleep(42); Console.Beep(622, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(698, 125); Thread.Sleep(125); Console.Beep(698, 125); Console.Beep(698, 125); Thread.Sleep(625); Console.Beep(784, 125); Console.Beep(740, 125); Console.Beep(698, 125); Thread.Sleep(42); Console.Beep(622, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(415, 125); Console.Beep(440, 125); Console.Beep(523, 125); Thread.Sleep(125); Console.Beep(440, 125); Console.Beep(523, 125); Console.Beep(587, 125); Thread.Sleep(250); Console.Beep(622, 125); Thread.Sleep(250); Console.Beep(587, 125); Thread.Sleep(250); Console.Beep(523, 125); Thread.Sleep(1125); Console.Beep(784, 125); Console.Beep(740, 125); Console.Beep(698, 125); Thread.Sleep(42); Console.Beep(622, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(415, 125); Console.Beep(440, 125); Console.Beep(523, 125); Thread.Sleep(125); Console.Beep(440, 125); Console.Beep(523, 125); Console.Beep(587, 125); Thread.Sleep(250); Console.Beep(784, 125); Console.Beep(740, 125); Console.Beep(698, 125); Thread.Sleep(42); Console.Beep(622, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(698, 125); Thread.Sleep(125); Console.Beep(698, 125); Console.Beep(698, 125); Thread.Sleep(625); Console.Beep(784, 125); Console.Beep(740, 125); Console.Beep(698, 125); Thread.Sleep(42); Console.Beep(622, 125); Thread.Sleep(125); Console.Beep(659, 125); Thread.Sleep(167); Console.Beep(415, 125); Console.Beep(440, 125); Console.Beep(523, 125); Thread.Sleep(125); Console.Beep(440, 125); Console.Beep(523, 125); Console.Beep(587, 125); Thread.Sleep(250); Console.Beep(622, 125); Thread.Sleep(250); Console.Beep(587, 125); Thread.Sleep(250); Console.Beep(523, 125);
+
+            //-----------Tetris
+
             Console.Beep(658, 125);
 
             Console.Beep(1320, 500);
