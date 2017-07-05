@@ -103,7 +103,11 @@ namespace DungeonsOfDoom
                 player.X = newX;
                 player.Y = newY;
 
-                //player.Health--;
+                if (world[player.X,player.Y].Item!=null)
+                {
+                    player.Backpack.Add(world[player.X, player.Y].Item);
+                    //world[player.X, player.Y].Item = null;
+                }
             }
         }
 
