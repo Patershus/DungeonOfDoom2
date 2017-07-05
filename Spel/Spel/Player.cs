@@ -18,7 +18,7 @@ namespace DungeonsOfDoom
         //public int Health { get; set; }
         //public int X { get; set; }
         //public int Y { get; set; }
-        public List<IBackpackable> Backpack { get; set; }
+        //public List<IBackpackable> Backpack { get; set; }
 
         public override string ToString()
         {

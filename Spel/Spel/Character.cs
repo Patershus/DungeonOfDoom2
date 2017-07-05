@@ -13,6 +13,7 @@ namespace DungeonsOfDoom
         public int Damage { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public List<IBackpackable> Backpack { get; set; }
 
 
         public Character(int health, int damage, char mapChar, int x, int y) : base(mapChar)
@@ -24,7 +25,6 @@ namespace DungeonsOfDoom
             Backpack = new List<IBackpackable>();
         }
 
-        public List<IBackpackable> Backpack { get; set; }
 
         public virtual string Fight(Character opponent)
         {
@@ -40,6 +40,6 @@ namespace DungeonsOfDoom
                 
             }
         }
-        //todo Fixa ToString för alla char
+        
     }
 }
