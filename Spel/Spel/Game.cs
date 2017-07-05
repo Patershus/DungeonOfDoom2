@@ -175,9 +175,9 @@ namespace DungeonsOfDoom
                     if (player.X != x || player.Y != y)
                     {
                         //Lägger till monster
-                        if (RandomUtils.TestPercentage(3))
+                        if (RandomUtils.TestPercentage(2+level))
                             world[x, y].Monster = new Ogre(x,y);
-                        if (RandomUtils.TestPercentage(15))
+                        if (RandomUtils.TestPercentage(10+level))
                             world[x, y].Monster = new Orc(x,y);
 
                         //Lägger till items
