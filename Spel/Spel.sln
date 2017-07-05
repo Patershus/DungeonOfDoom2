@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spel", "Spel\Spel.csproj", "{976FF8A0-D435-40EE-BDFA-D95FFA7B5C42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{58F10327-F3A0-4838-AFB7-3D9429836AA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{976FF8A0-D435-40EE-BDFA-D95FFA7B5C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{976FF8A0-D435-40EE-BDFA-D95FFA7B5C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{976FF8A0-D435-40EE-BDFA-D95FFA7B5C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

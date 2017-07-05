@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom.Utils
 {
-    static class TextUtils
+    public static class TextUtils
     {
         public static void Animate(string value)
         {

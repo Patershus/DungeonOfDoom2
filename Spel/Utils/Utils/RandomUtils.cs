@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom.Utils
 {
-    static class RandomUtils
+    public static class RandomUtils
     {
         static Random random = new Random();
 
