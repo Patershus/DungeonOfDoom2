@@ -15,16 +15,6 @@ namespace DungeonsOfDoom
             MonsterCount++;
         }
 
-        //public Item PutInBackpack(Monster monster)
-        //{
-        //    monster.ToString();
-
-        //       Item itemToReturn= new Item("mon", 'M');
-        //    return itemToReturn;
-        //}
-
-
-
         //public int Health { get; set; }
     }
 }
