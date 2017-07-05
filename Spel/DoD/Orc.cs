@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Orc : Monster, IBackpackable
+    public class Orc : Monster, IBackpackable
     {
         public Orc(int x, int y) : base(20, 5, x, y)
         {

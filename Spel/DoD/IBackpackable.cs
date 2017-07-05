@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    interface IBackpackable
+    public interface IBackpackable
     {
     }
 }

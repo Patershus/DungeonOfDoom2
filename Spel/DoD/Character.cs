@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    abstract class Character : MapObject, IBackpackable
+    public abstract class Character : MapObject, IBackpackable
     {
 
         public int Health { get; set; }

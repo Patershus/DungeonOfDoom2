@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spel", "Spel\Spel.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{58F10327-F3A0-4838-AFB7-3D9429836AA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoD", "DoD\DoD.csproj", "{03DD0936-FDB2-4C5E-A549-882D45FE74B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F10327-F3A0-4838-AFB7-3D9429836AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03DD0936-FDB2-4C5E-A549-882D45FE74B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03DD0936-FDB2-4C5E-A549-882D45FE74B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03DD0936-FDB2-4C5E-A549-882D45FE74B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03DD0936-FDB2-4C5E-A549-882D45FE74B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

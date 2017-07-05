@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Sword : Item, IBackpackable
+    public class Sword : Item, IBackpackable
     {
         //Ctor
         public Sword(string name, int damage) : base(name, 'I')

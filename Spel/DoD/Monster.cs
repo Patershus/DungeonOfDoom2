@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    abstract class Monster : Character, IBackpackable
+    public abstract class Monster : Character, IBackpackable
     {
         public static int MonsterCount { get; set; }
 

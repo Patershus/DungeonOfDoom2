@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Potion : Item, IBackpackable
+    public class Potion : Item, IBackpackable
     {
         public Potion(int healing ,string name) : base(name, 'I')
         {
