@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Sword : Item
+    class Sword : Item, IBackpackable
     {
         //Ctor
         public Sword(string name, int damage) : base(name, 'I')
@@ -18,10 +18,17 @@ namespace DungeonsOfDoom
         public int Damage { get; set; }
 
         //Effekt av att använda svärd.
-        public override string Use(Character player)
+        public override string Use(Character character)
         {
-            player.Damage += Damage;
+            character.Damage += Damage;
+            character.Backpack.Add(this);
+
             return $"You picked up a {this.Name}, {this.Damage} damage added!";
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

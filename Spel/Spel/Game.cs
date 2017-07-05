@@ -31,16 +31,29 @@ namespace DungeonsOfDoom
             do
             {
                 Console.Clear();
-            Console.WriteLine($"Level: {currentLevel}");
+                Console.WriteLine($"Level: {currentLevel}");
                 DisplayStats();
                 DisplayWorld();
                 CheckIfEmpty();                
+                DisplayBackpack();
                 AskForMovement();
                 DidIWin();
             } while (player.Health > 0);
 
 
             GameOver();
+        }
+
+        private void DisplayBackpack()
+        {
+            if (player.Backpack!=null)
+            {
+                foreach (IBackpackable item in player.Backpack)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+           
         }
 
         private void DidIWin()
@@ -61,12 +74,14 @@ namespace DungeonsOfDoom
             {
                 Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
                 
+
                 world[player.X, player.Y].Monster = null;
                 Monster.MonsterCount--;
             }
             else if (world[player.X, player.Y].Item != null)
             {              
                     string OutputString = world[player.X, player.Y].Item.Use(player);
+                    //player.Backpack.Add(world[player.X, player.Y].Item);
                     world[player.X, player.Y].Item = null;
                     Console.WriteLine(OutputString);          
             }
@@ -103,11 +118,11 @@ namespace DungeonsOfDoom
                 player.X = newX;
                 player.Y = newY;
 
-                if (world[player.X,player.Y].Item!=null)
-                {
-                    player.Backpack.Add(world[player.X, player.Y].Item);
-                    //world[player.X, player.Y].Item = null;
-                }
+                //if (world[player.X,player.Y].Item!=null)
+                //{
+                //    player.Backpack.Add(world[player.X, player.Y].Item);
+                //    //world[player.X, player.Y].Item = null;
+                //}
             }
         }
 

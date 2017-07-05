@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    abstract class Character : MapObject
+    abstract class Character : MapObject, IBackpackable
     {
 
         public int Health { get; set; }
@@ -21,7 +21,11 @@ namespace DungeonsOfDoom
             Y = y;
             Health = health;
             Damage = damage;
+            Backpack = new List<IBackpackable>();
         }
+
+        public List<IBackpackable> Backpack { get; set; }
+
         public virtual string Fight(Character opponent)
         {
             opponent.Health -= this.Damage;
@@ -31,7 +35,8 @@ namespace DungeonsOfDoom
             }
             else
             {
-            return $"{this} killed {opponent}";
+                this.Backpack.Add(opponent);
+                return $"{this} killed {opponent}";
                 
             }
         }

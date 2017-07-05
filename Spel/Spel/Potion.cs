@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom
 {
-    class Potion : Item
+    class Potion : Item, IBackpackable
     {
         public Potion(int healing ,string name) : base(name, 'I')
         {
@@ -16,10 +16,17 @@ namespace DungeonsOfDoom
 
         public int Healing { get; private set; }
 
-        public override string Use(Character player)
+        public override string Use(Character character)
         {
-            player.Health += Healing;
+            character.Health += Healing;
+            character.Backpack.Add(this);
             return $"You picked up a Potion, healed for 10!";
+
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 
