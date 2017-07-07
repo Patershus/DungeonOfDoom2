@@ -18,7 +18,7 @@ namespace DoD
         /// </summary>
         /// <param name="opponent">The opponent to fight</param>
         /// <returns>string to print</returns>
-        public override string Fight(Character opponent)
+        public override string Attack(Character opponent)
         {
             if (opponent.Damage>this.Damage*2)
             {
@@ -29,12 +29,8 @@ namespace DoD
             else
             {
                 opponent.Health -= this.Damage;
-
-                if (opponent.Health>0)
-                {
-                return opponent.Fight(this);
-                }
-                return $"{this} killed {opponent}";
+         
+                return $"{this} damaged {opponent} for {this.Damage}";
             }
             
         }

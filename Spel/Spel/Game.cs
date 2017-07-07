@@ -108,9 +108,37 @@ namespace DungeonsOfDoom
         /// </summary>
         private void FightMonster()
         {
-            Console.WriteLine(player.Fight(world[player.X, player.Y].Monster));
-            world[player.X, player.Y].Monster = null;
-            Monster.MonsterCount--;
+            bool continueFight = true;
+
+            while (continueFight)
+            {
+
+                //Första karaktären slår
+                Console.WriteLine(player.Attack(world[player.X, player.Y].Monster));
+
+                //Om opponent dör
+                if (world[player.X, player.Y].Monster.Health <= 0 )
+                {
+                Console.WriteLine($"{player} have slain {world[player.X, player.Y].Monster}");
+                Monster.MonsterCount--;
+                world[player.X, player.Y].Monster = null;
+                    continueFight = false;
+                }
+                //Else slå tillbaka
+                else
+                {
+                 Console.WriteLine(world[player.X, player.Y].Monster.Attack(player));
+                }
+
+                if (player.Health<= 0)
+                {
+                    continueFight = false;
+                    Console.WriteLine($"{world[player.X, player.Y].Monster} have slain {player}");
+                }
+
+                Thread.Sleep(500);
+           
+            }
         }
 
         /// <summary>
@@ -207,14 +235,16 @@ namespace DungeonsOfDoom
                     if (player.X != x || player.Y != y)
                     {
                         //Lägger till monster
-                        if (RandomUtils.TestPercentage(2+level))
-                            world[x, y].Monster = new Ogre(x,y);
-                        if (RandomUtils.TestPercentage(10+level))
-                            world[x, y].Monster = new Orc(x,y);
+                        if (RandomUtils.TestPercentage(5 + level))
+                            world[x, y].Monster = new Ogre(x, y);
+                        if (RandomUtils.TestPercentage(10 + level))
+                            world[x, y].Monster = new Orc(x, y);
+                        if (RandomUtils.TestPercentage(10 + level))
+                            world[x, y].Monster = new Wizard(x, y);
 
                         //Lägger till items
                         if (RandomUtils.TestPercentage(5))
-                            world[x, y].Item = new Sword("Rusty Sword", 2);
+                            world[x, y].Item = new Sword("Rusty Sword", 6);
                         if (RandomUtils.TestPercentage(0.1))
                             world[x, y].Item = new Sword("Sword AF Doom", 100000000);
                         if (RandomUtils.TestPercentage(5))

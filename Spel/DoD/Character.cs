@@ -31,19 +31,12 @@ namespace DoD
         /// </summary>
         /// <param name="opponent">Character to fight</param>
         /// <returns>Returns a string to print</returns>
-        public virtual string Fight(Character opponent)
+        public virtual string Attack(Character opponent)
         {
             opponent.Health -= this.Damage;
-            if (opponent.Health > 0)
-            {
-                return opponent.Fight(this);
-            }
-            else
-            {
-                this.Backpack.Add(opponent);
-                return $"{this} killed {opponent}";
-                
-            }
+
+            return $"{this} damaged {opponent} for {Damage}";                
+            
         }
         
     }
