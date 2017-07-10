@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Utils
+namespace Utils.Utils
+
 {
     public static class TextUtils
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoD
+namespace DoD.Characters.Monsters
 {
     public class Orc : Monster, IBackpackable
     {

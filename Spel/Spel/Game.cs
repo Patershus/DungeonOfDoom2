@@ -1,4 +1,4 @@
-﻿using Utils;
+﻿using Utils.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DoD;
 using DoD.Items;
 using DoD.Characters;
+using DoD.Characters.Monsters;
 
 namespace DungeonsOfDoom
 {
