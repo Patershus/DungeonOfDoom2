@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DoD;
+using DoD.Items;
+using DoD.Characters;
 
 namespace DungeonsOfDoom
 {

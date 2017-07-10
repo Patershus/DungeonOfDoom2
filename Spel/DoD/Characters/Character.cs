@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DoD
+namespace DoD.Characters
+
 {
     public abstract class Character : MapObject, IBackpackable
     {

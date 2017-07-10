@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoD
+namespace DoD.Characters
 {
     /// <summary>
     /// Player class
